@@ -54,34 +54,36 @@ document.querySelectorAll('.nav-menu a').forEach(link => {
 
 
 
-        /* showToast(message, durationMs) */
-        function showToast(message, duration = 15000) {
-            const container = document.getElementById('toast-container');
-            if (!container) return;
-            const toast = document.createElement('div');
-            toast.className = 'toast';
-            toast.innerHTML = '<span class="toast-msg"></span><button class="toast-close" aria-label="Close">&times;</button>';
-            toast.querySelector('.toast-msg').textContent = message;
-            container.appendChild(toast);
+/* showToast(message, durationMs) */
+function showToast(message, duration = 15000) {
+    const container = document.getElementById('toast-container');
+    if (!container) return;
+    const toast = document.createElement('div');
+    toast.className = 'toast';
+    toast.innerHTML = '<span class="toast-msg"></span><button class="toast-close" aria-label="Close">&times;</button>';
+    toast.querySelector('.toast-msg').textContent = message;
+    container.appendChild(toast);
 
-            // enter
-            requestAnimationFrame(() => toast.classList.add('show'));
+    // enter
+    requestAnimationFrame(() => toast.classList.add('show'));
 
-            // close handler
-            const remove = () => {
-                toast.classList.remove('show');
-                setTimeout(() => toast.remove(), 250);
-            };
-            toast.querySelector('.toast-close').addEventListener('click', remove);
+    // close handler
+    const remove = () => {
+        toast.classList.remove('show');
+        setTimeout(() => toast.remove(), 250);
+    };
+    toast.querySelector('.toast-close').addEventListener('click', remove);
 
-            // auto remove
-            if (duration > 0) setTimeout(remove, duration);
-        }
+    // auto remove
+    if (duration > 0) setTimeout(remove, duration);
+}
 
-        /* Auto demo toast on page load */
-        document.addEventListener('DOMContentLoaded', () => {
-            showToast(`I apologize if my recent code did not meet expectations. This is not my usual standard. I had a surgery two days ago and did my best to contribute despite my current health condition.
+/* Auto demo toast on page load */
+// document.addEventListener('DOMContentLoaded', () => {
+//     showToast(`I apologize if my recent code did not meet expectations. This is not my usual standard.
+//                 I had a surgery two days ago and did my best to contribute despite 
+//                 my current health condition.
+// Thank you for your understanding. I will make sure my work 
+// reflects my normal performance as soon as I fully recover.`);
+// });
 
-Thank you for your understanding. I will make sure my work reflects my normal performance as soon as I fully recover.`);
-        });
-    
