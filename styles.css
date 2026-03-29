@@ -30,7 +30,7 @@ body {
 
 .container {
     max-width: 1200px;
-    margin: 0 auto;
+    margin: 1rem auto;
     padding: 1rem 2rem;
 }
 
