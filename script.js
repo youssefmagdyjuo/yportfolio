@@ -35,20 +35,28 @@ document.querySelectorAll('.project-card, .skill-category, .about-content').forE
 // Mobile navigation toggle
 const navBtn = document.querySelector('.nav_btn');
 const navMenu = document.querySelector('.nav-menu');
+const navIcon = document.querySelector('.nav_btn i');
+
 navBtn.addEventListener('click', () => {
-    if (navMenu.style.display === 'flex') {
-        navMenu.style.display = 'none';
+    navMenu.classList.toggle('active');
+    
+    if (navMenu.classList.contains('active')) {
+        navIcon.classList.remove('fa-bars');
+        navIcon.classList.add('fa-xmark');
     } else {
-        navMenu.style.display = 'flex';
+        navIcon.classList.remove('fa-xmark');
+        navIcon.classList.add('fa-bars');
     }
 });
+
 // Close mobile menu on link click
 document.querySelectorAll('.nav-menu a').forEach(link => {
     link.addEventListener('click', () => {
         if (window.innerWidth <= 768) {
-            navMenu.style.display = 'none';
+            navMenu.classList.remove('active');
+            navIcon.classList.remove('fa-xmark');
+            navIcon.classList.add('fa-bars');
         }
-
     });
 });
 
