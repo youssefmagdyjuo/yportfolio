@@ -263,6 +263,10 @@ ul li::marker {
     padding: 4rem 0.5rem;
 }
 
+.projects .container {
+    max-width: 1280px;
+}
+
 .projects h2 {
     font-size: 2.5rem;
     margin-bottom: 3rem;
@@ -272,7 +276,7 @@ ul li::marker {
 
 .projects-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    grid-template-columns: repeat(2, 1fr);
     gap: 2.5rem;
 }
 
@@ -679,6 +683,12 @@ ul li::marker {
 }
 
 /* Responsive Design */
+@media (max-width: 960px) {
+    .projects-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
 @media (max-width: 768px) {
     .nav-menu {
         gap: 1rem;
